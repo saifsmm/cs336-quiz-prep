@@ -1,0 +1,819 @@
+
+--- PAGE 1 ---
+CS336:CONCEPTS OF 
+PROGRAMMING LANGUAGES
+INTRODUCTION
+Dr Hend El Mohandes
+1
+
+--- PAGE 2 ---
+THE LECTURER
+• PHD in Biomedical Engineering , Heriot-watt University.
+• M.Sc. from Nile University, Egypt / Fraunhofer Institute, Germany
+• B.Sc.  from Ain Shams University Faculty of Engineering, Egypt
+• Worked at Fraunhofer Research Institute(IBMT), Germany 
+• Lectured at ASU, Nile University and Heriot-Watt University.
+• Other Research Interests
+• Biomedical Engineering
+• Machine Learning
+• Brain computer Interface
+• Prosthesis control
+2
+
+--- PAGE 3 ---
+CONTACT INFO
+• Black Board
+• Email: 
+•Hend.elmohandes@buid.ac.ae
+•Hendelmohandes@gmail.com
+• Office hours:
+• By contact
+3
+
+--- PAGE 4 ---
+LAB AND HANDS -ON EXERCISES
+• Supervised by Mrs Althea 
+• BUiD graduate and Alimuni
+• Interests: 
+❖ Computer vision
+❖ AI
+❖ Experienced in big data applications
+• Email: 
+❖ ma.althea@buid.ac.ae 
+• Linkedin:
+❖ www.linkedin.com/in/althearetig
+4
+
+--- PAGE 5 ---
+COURSE INFO
+• Lectures/Labs: – Mondays/Wednesdays 8:30 am -10:30 am
+                        –  Thursdays     (labs)       1:30 pm-3:30 pm
+• Attendance is of crucial importance!!
+• Less than 70% attendance = fail
+• Please be on time after: 
+• After 15 minutes= Late
+• After 30 minutes = Absent 
+5
+
+--- PAGE 6 ---
+COURSE INFO
+• Textbook
+• Kenneth C. Louden and Kenneth A. Lambert. Programming Languages: 
+Principles and Practice, 3rd Edition, Cengage Learning, 2011, ISBN-13: 978-
+1111529413. 
+• Linda Torczon and Keith Cooper. 2011. Engineering a Compiler (2nd ed.). 
+Morgan Kaufmann Publishers Inc., San Francisco, CA, USA
+• Grading
+ 
+• Quizzes 20%
+• Assignment 20%
+• Midterm: 20%
+• Final: 40%
+6
+
+--- PAGE 7 ---
+COURSE INFO
+• What to expect:
+7
+Assessment Handed Due Topic and 
+Associated Weight
+1 Week 2-10 Week 2-10 Quizzes (20%)
+2 Week 3 Week 10 Assignment (20%)
+3 Week 6 Week 6 Midterm (20%)
+4 Week 11 Week 11 Final Exam (40%)
+
+--- PAGE 8 ---
+HONOR POLICY
+▪ If you find yourself looking at somebody else's code, and doing such 
+was not explicitly allowed, then you are in violation of this policy!
+▪ An advanced plagiarism detection tool will be used for all submitted 
+codes (Assignments , graded labs , project ..etc)
+▪First time the mark of the assignment will be zero for BOTH students, 
+second time the ENTIRE total mark of assignment will be set to zeros.
+▪ Any honor violation or cheating will be referred to the honor 
+committee and will result in an immediate failure for the course, 
+regardless of the outcome of the honor trial or your other grades.
+▪ No exceptions!
+8
+
+--- PAGE 9 ---
+▪ How we communicate influences how we think, and vice versa. 
+▪ Similarly, how we program computers influences how we think about 
+computation, and vice versa. 
+▪ A study of programming language design and its principles is as 
+essential to the programmer and computer scientist as the knowledge 
+of a particular programming language such as C or Java.
+9
+WHY THIS COURSE?
+
+--- PAGE 10 ---
+▪ Without this knowledge it is impossible to gain the needed perspective 
+and insight into the effect that programming languages and their 
+design have on the way that we solve problems with computers.
+▪ It is the goal of this course to introduce the major principles and 
+concepts underlying programming languages.
+10
+WHY THIS COURSE?
+
+--- PAGE 11 ---
+▪ A notation for communicating to a computer what we want it 
+to do.
+ 
+How accurate is the definition above?
+11
+WHAT IS PROGRAMMING?
+
+--- PAGE 12 ---
+▪ A notation for communicating to a computer what we want it to 
+do.
+ 
+▪ Before the 1940s, computers were programmed using hardwiring: 
+switches were set by the programmer to connect the internal wiring of 
+a computer to perform requested tasks!
+▪ This effectively communicated to the computer what computations 
+were desired, but programming, if it could be called that, 
+consisted of the expensive and error-prone activity of taking 
+down the hardware to restructure it. 
+12
+WHAT IS PROGRAMMING?
+
+--- PAGE 13 ---
+▪ Completed in 1945 and announced in 1946, ENIAC (Electronic 
+Numerical Integrator and Computer) was the world's first 
+programmable, electronic, general-purpose digital computer.
+13
+WHAT IS PROGRAMMING?
+
+
+--- PAGE 14 ---
+▪ John von Neumann had the idea that a computer should be 
+permanently hardwired with a small set of general-purpose 
+operations.
+▪ The operator could then input into the computer a series of 
+binary codes that would organize the basic hardware operations 
+to solve more-specific problems. 
+▪ Instead of turning off the computer to reconfigure its circuits, the 
+operator could flip switches to enter these codes, expressed in 
+machine language, into computer memory.
+14
+WHAT IS PROGRAMMING?
+
+
+--- PAGE 15 ---
+▪ But is using this language easy or practical ?
+15
+WHAT IS PROGRAMMING?
+
+
+--- PAGE 16 ---
+▪ The early programmers realized that it would be a tremendous 
+help to use mnemonic symbols for the instruction codes and 
+memory locations.
+▪ The assembly language was then born
+16
+WHAT IS PROGRAMMING?
+
+
+--- PAGE 17 ---
+▪ This type of language relies on software tools to automate some 
+of the tasks of the programmer. 
+▪ A program called an assembler translates the symbolic assembly 
+language code to binary machine code.
+▪ After translation, another program, called a loader, 
+automatically loads the machine code for this instruction into 
+computer memory.
+17
+WHAT IS PROGRAMMING?
+
+--- PAGE 18 ---
+▪ The assembly language is 
+❑ Very machine dependent.
+❑ Very low in abstraction. 
+❑ More difficult to program. 
+❑ However, very fast and provides tremendous programming 
+control.
+18
+WHAT IS PROGRAMMING?
+
+--- PAGE 19 ---
+▪ Due to limitations of assembly language Higher levels of 
+programming languages are needed to: 
+❑ Provide a higher level of abstraction. 
+❑ Improve the ability to write concise, more understandable 
+instructions. 
+❑ Could be used with little change from machine to machine. 
+❑ Capture generalizations such as loops, assignments, conditions, 
+etc.
+19
+WHAT IS PROGRAMMING?
+
+--- PAGE 20 ---
+▪ Unlike assembly language, high-level languages, such as C, Java, 
+and Python, support notations closer to the abstractions, such as 
+algebraic expressions, used in mathematics and science. 
+▪ For example, the following code segment in C or Java is 
+equivalent to the assembly language program for adding two 
+numbers.
+20
+WHAT IS PROGRAMMING?
+
+
+--- PAGE 21 ---
+▪ A notation for communicating to a computer what we want it to 
+do. 
+▪ A programming language is a notational system for describing 
+computation in machine-readable and human-readable form.
+21
+WHAT IS PROGRAMMING?
+
+--- PAGE 22 ---
+▪ Computation is any process that can be carried out by a 
+computing machine such as: 
+❑ Mathematical calculations. 
+❑ Data manipulation. 
+❑ Text processing. 
+❑ Information storage and retrieval
+22
+COMPUTATION
+
+--- PAGE 23 ---
+▪ Computation is formally described using a Turing Machine.
+❑ A Turing Machine is: A theoretical, mathematical model of 
+computation created by Alan Turing in 1936 that defines the 
+fundamental limits of what can be computed.
+❑ It is a very simple computer that is capable of carrying out all 
+known computations (however, not very efficiently).
+▪ Church’s Thesis: It is not possible to build a machine that is 
+inherently more powerful than a Turing Machine.
+23
+COMPUTATION
+
+--- PAGE 24 ---
+▪ A programming language is Turing Complete if:
+❑ It can be used to describe any computation performed by a 
+Turing Machine. 
+▪ A programming language is Turing Complete if it has
+❑  Integer variables and arithmetic.
+❑  Sequential execution of statements. 
+❑  Assignment, selection (if), and looping (while) !!! 
+24
+COMPUTATION
+
+--- PAGE 25 ---
+▪ For a language to be machine readable it must: 
+❑ Have a simple structure to allow for efficient translation. 
+❑ There must be an algorithm for translation: unambiguous and 
+finite. 
+❑ The algorithm must not have a very high complexity. 
+❑ Most programming languages can be translated in time that is 
+proportional to the size of the program.
+25
+MACHINE READABILITY
+
+--- PAGE 26 ---
+▪ Usually, machine readability is ensured by restricting the 
+structure of a programming language to that of:
+Context Free Languages 
+▪ It means: You can check correctness without needing 
+extra surrounding information.
+26
+MACHINE READABILITY
+
+
+--- PAGE 27 ---
+▪ A programming language should provide abstractions of 
+complex computational tasks, yet that have to be easy 
+to understand. 
+▪ Programming languages tend to resemble natural 
+languages (English, German, etc.). 
+▪ The goal is to reduce the effort required to read and 
+understand a complex program. 
+27
+HUMAN READABILITY
+
+--- PAGE 28 ---
+▪ Large programs also require many programmers to 
+simultaneously write different parts of the program. 
+▪ A programming language is not only a means for 
+describing a computation, but: 
+❑Is also now part of a software development 
+environment. 
+❑Should promote and enforce a software design 
+methodology. 
+28
+HUMAN READABILITY
+
+--- PAGE 29 ---
+▪ Software development environments do not only contain 
+facilities to write and translate programs but also: 
+❑Manipulates files. 
+❑Keeps records of changes. 
+❑Performs debugging. 
+❑Testing. 
+❑Analysis. 
+29
+HUMAN READABILITY
+
+--- PAGE 30 ---
+▪ What about writability? 
+▪ Should not a programming language be easy to write 
+also? 
+▪ To some extent, yes, readability tends to be more 
+important as many people will be reading and 
+maintaining code after you write it.
+30
+HUMAN WRITABILITY
+
+--- PAGE 31 ---
+▪ Programming language abstractions fall into two 
+general categories: data abstraction and control 
+abstraction. 
+▪ Data abstractions simplify for human users the behavior 
+and attributes of data, such as numbers, character 
+strings, and search trees. 
+▪ Control abstractions simplify properties of the transfer 
+of control, that is, the modification of the execution path 
+of a program. 31
+ABSTRACTION IN PROGRAMMING
+
+--- PAGE 32 ---
+▪ Abstract the internal representation of common data 
+values. So we hide the internal storage details and let 
+the programmer use the value in a simple form.
+▪ Integer data values are usually stored using two’s 
+complement for example. 
+▪ Floating point data values are stored using a mantissa 
+representation (mantissa sign, value, exponent sign, 
+value).
+32
+DATA ABSTRACTION - SIMPLE OR BASIC
+
+--- PAGE 33 ---
+▪ Memory locations containing data values are abstracted 
+by giving them names using variables.
+▪ The kind of data value is also abstracted using a data 
+type (int, double, float, etc.)
+▪ Example:
+int x; (C, C++, and Java)
+var x: integer; (Pascal)
+33
+DATA ABSTRACTION - SIMPLE OR BASIC
+
+--- PAGE 34 ---
+▪ The data structure is the principal method for collecting 
+related data values into a single unit. 
+▪ For example, an employee record may consist of a 
+name, address, phone number, and salary, each of 
+which may be a different data type, but together 
+represent the employee’s information as a whole.
+▪ Like primitive data values, a data structure is an 
+abstraction that hides a group of component parts, 
+allowing the programmer to view them as one thing.
+34
+DATA ABSTRACTION - STRUCTURED
+
+--- PAGE 35 ---
+▪ Typical basic control abstractions are those that 
+combine a few machine instructions into a more 
+understandable abstract statement. 
+▪ Example: Assignment 
+                 x = x + 10 
+▪ It abstracts the fetching of the value of x, performing a 
+computation and storage of a value into a location 
+denoted by a variable name.
+35
+CONTROL  ABSTRACTION - BASIC
+
+--- PAGE 36 ---
+▪ Example: 
+▪ Abstracts a jump operation to transfer control 
+elsewhere in the program.
+36
+CONTROL  ABSTRACTION - BASIC
+
+
+--- PAGE 37 ---
+▪ Divide a program into groups of instructions. 
+▪ Examples: 
+▪ case (Pascal) 
+▪ switch (C, C++, Java) 
+▪ while
+37
+CONTROL  ABSTRACTION - STRUCTURED
+
+--- PAGE 38 ---
+▪ Divide a program into groups of instructions. 
+38
+CONTROL  ABSTRACTION - STRUCTURED
+
+
+--- PAGE 39 ---
+▪ Another powerful mechanism for structuring control is 
+the procedure, sometimes also called a subprogram. 
+▪ This allows a programmer to consider a sequence of 
+actions as a single action that can be called or invoked 
+from many other points in a program. 
+▪ Procedural abstraction involves two things. First, a 
+procedure declaration then activation. 
+39
+CONTROL  ABSTRACTION - STRUCTURED
+
+--- PAGE 40 ---
+40
+END OF PART 1
+
+--- PAGE 41 ---
+41
+Computational Paradigm
+▪ A paradigm = a way of thinking about programming.
+So:
+▪ Computational paradigms = different styles of writing 
+programs.
+                   Imperative | Functional | Logic | OOP
+
+--- PAGE 42 ---
+▪ A programming language that is characterized by:
+o Sequential execution of instructions.
+oThe use of variables representing memory locations,
+oAnd the use of assignment to change the values of variables is 
+called an imperative language.
+▪ Example:
+x = 5
+x = x + 1
+Imperative Paradigm
+
+--- PAGE 43 ---
+▪ The requirement that a computation be described as a 
+sequence of instructions, each operating on a single piece 
+of data is called the von Neumann bottleneck.
+▪It restricts the ability of the language to indicate parallel , 
+or non-deterministic computation upon multiple pieces of 
+data.
+▪Examples: C, Pascal, core Ada, FORTRAN
+Imperative Paradigm
+
+--- PAGE 44 ---
+44
+Functional Paradigm
+▪ It is a type of programming paradigm that is being 
+created explicitly simply to support a purely functional 
+approach to solving problems.
+▪ No steps —> just mathematics
+No changing variables
+Just input → output
+No state change 
+No “x = x + 1” 
+Pure functions 
+
+--- PAGE 45 ---
+45
+Functional Paradigm
+▪ Passive data, no sequential control. 
+▪ All actions performed by function evaluation (call), 
+particularly recursion. 
+▪ No variables exist ! 
+▪ Repetitive operations are not expressed by loops 
+(which require control variables to terminate), rather by 
+recursive functions!
+▪ Examples: Lisp (Scheme), ML, Haskell
+
+--- PAGE 46 ---
+46
+Functional Paradigm
+▪ LISP is a more functional oriented language. 
+▪ LISP programs are list expressions.
+▪ Sequences of entities separated by spaces and 
+surrounded by parentheses. 
+o (+ 2 3) simply means 2 + 3 
+o (gcd 8 18) simply means call gcd and pass it 8 and 
+18. 
+
+--- PAGE 47 ---
+47
+Logic Paradigm
+▪ It is a type of programming paradigm where you give 
+rules, computer finds the answer.
+▪ You give facts + rules
+
+
+--- PAGE 48 ---
+48
+Logic Paradigm
+▪ A pure logic programming language has no need for 
+control abstractions such as loops or selections. 
+▪ Control is supplied by the underlying system. 
+▪ Logic programming is sometimes called declarative 
+programming, since properties are declared, but no 
+execution sequence is specified. 
+▪ Very high level languages.
+▪ Example: Prolog
+
+--- PAGE 49 ---
+49
+Object Oriented Paradigm
+▪ Object-oriented languages allow programmers to write 
+reusable code that operates in a way that mimics the 
+behavior of objects in the real world.
+▪  As a result, programmers can use their natural intuition 
+about the world to understand the behavior of a 
+program and construct appropriate code.
+                         Objects = data + behavior
+▪ Example: Java ,Smalltalk ,C++
+
+--- PAGE 50 ---
+50
+Computational Paradigm
+Paradigm Focus Like telling 
+someone…
+Imperative Steps “Do this, then this, 
+then this”
+Functional Math “This is the 
+formula/result”
+Logic Rules “These are the rules, 
+figure it out”
+OOP Objects “These are objects 
+that interact”
+
+--- PAGE 51 ---
+51
+Computational Paradigm
+▪ Why this matters?
+▪ Different paradigms: Solve problems differently , Help 
+in different situations.
+▪ Example:
+o AI → functional/logic
+o Systems → imperative
+o Software apps → OOP
+
+--- PAGE 52 ---
+52
+Computational Paradigm
+▪ There are few additional – So called paradigm such 
+as: 
+▪ The parallel paradigm: 
+o Schools vary in labeling this as a paradigm on its own. 
+o No sequential execution involved. 
+o Examples: Java (Threads), Ada (Tasks)
+
+--- PAGE 53 ---
+53
+Language Definition
+▪ There has been increasing acceptance of the need for 
+programming languages to have definitions that are 
+formally precise.
+▪ Precise definitions allow:
+o Definitions of the effect of language constructs.
+o Mathematical reasoning about programs.
+o Standardization of languages.
+
+--- PAGE 54 ---
+54
+Language Definition
+▪ Standardization organizations:
+o ANSI (American National Standards Institute)
+o ISO (International Organization for Standardization).
+▪ Such organizations have published definitions for many 
+languages including:
+o Pascal
+o FORTRAN
+o C
+o C++
+o Ada
+o Prolog
+
+--- PAGE 55 ---
+55
+Language Definition
+▪ Language definition is loosely divided into two parts:
+o Syntax 
+o Semantics
+
+--- PAGE 56 ---
+56
+Language Definition
+▪ Language definition is loosely divided into two parts:
+o Syntax:
+▪ Like the grammar of natural languages. 
+▪ Defines the structure of a program, and how parts can 
+be combined together. 
+▪ Usually formally defined using a context-free 
+language.
+
+--- PAGE 57 ---
+57
+Language Definition
+▪ Language definition is loosely divided into two parts:
+o Syntax Example:
+▪ An if statement consists of:
+o The word “if” followed by 
+o An expression inside parenthesis followed by 
+o A statement followed by 
+o An optional else consisting of the word “else” and 
+another statement.
+
+--- PAGE 58 ---
+58
+Language Definition
+▪ Language definition is loosely divided into two parts:
+o Syntax Example:
+
+
+--- PAGE 59 ---
+59
+Language Definition
+▪ Language definition is loosely divided into two parts:
+o Syntax:
+▪ An issue closely related to the syntax of a 
+programming language is its lexical structure. 
+▪ Similar to spelling in a natural language. 
+▪ The words in the programming language are usually 
+called tokens. 
+▪ Example: if, else, +, <=
+
+--- PAGE 60 ---
+60
+Language Definition
+▪ Language definition is loosely divided into two parts:
+o Syntax:
+
+
+--- PAGE 61 ---
+61
+Language Definition
+▪ Language definition is loosely divided into two parts:
+o Semantic:
+▪ Denotes the meaning of a language and the actual 
+result of execution. 
+▪ Is more complex and difficult to describe precisely.
+▪ Usually described in English, but can be done 
+mathematically also.
+
+--- PAGE 62 ---
+62
+Language Definition
+▪ Language definition is loosely divided into two parts:
+o Semantic Example:
+▪ An if-statement is executed by first evaluating its expression, 
+which must have arithmetic pointer or type, including all side 
+effects, and if it compares unequal to 0, the statement following 
+the expression is executed. If there is an else part, and the 
+expression is 0, the statement following the else is executed. 
+ What if the expression evaluates to false and there is no 
+else?? The statement above does not describe this!
+
+--- PAGE 63 ---
+63
+Language Definition
+▪ Language definition is loosely divided into two parts:
+o Semantic Example:
+▪ Is the If statement described above safe?? 
+▪ There should not be another statement in the language capable 
+of executing the body of the if, without evaluating the 
+expression! 
+   If (x!=0) y = 1/x; 
+▪ If the If statement is safe, the division here is adequately 
+protected from division by zero situations!
+
+--- PAGE 64 ---
+64
+Language Translation
+▪ For a programming language to be useful, it must have 
+a translator:
+▪ A program (in hardware or software) that accepts 
+other programs written in the language in question and 
+either:
+o Executes them directly.
+o Transforms them into a form suitable for execution.
+
+--- PAGE 65 ---
+65
+Language Translation
+▪ A translator that executes a program directly is called 
+an interpreter, while a translator that produces an 
+equivalent program in a form suitable for execution is 
+called a compiler.
+
+--- PAGE 66 ---
+66
+Language Translation- Interpreter
+▪ As shown , interpretation is a one-step process, in which 
+both the program and the input are provided to the 
+interpreter, and the output is obtained.
+▪ An interpreter can be viewed as a simulator for a 
+machine whose “machine language” is the language 
+being translated.
+
+
+--- PAGE 67 ---
+67
+Language Translation- Compiler
+▪ Compilation, on the other hand, is at least a two-step 
+process: 
+▪ The original program (or source program) is input to 
+the compiler, and a new program (or target program) 
+is output from the compiler. 
+▪ This target program may then be executed, if it is in a 
+form suitable for direct execution (i.e., in machine 
+language).
+
+--- PAGE 68 ---
+68
+Language Translation- Compiler
+▪ More commonly, the target language is assembly 
+language, and the target program must be translated 
+by an assembler into an object program.
+▪  And then linked with other object programs, and 
+loaded into appropriate memory locations before it 
+can be executed. 
+▪ Sometimes the target language is even another 
+programming language, in which case a compiler for 
+that language must be used to obtain an executable 
+object program.
+
+--- PAGE 69 ---
+69
+Language Translation- Compiler
+▪ Alternatively, the target language is a form of low-
+level code known as byte code. 
+▪ After a compiler translates a program’s source code to 
+byte code, the byte code version of the program is 
+executed by an interpreter. 
+▪ This interpreter, called a virtual machine, is written 
+differently for different hardware architectures, 
+whereas the byte code, like the source language, is 
+machine-independent. 
+
+--- PAGE 70 ---
+70
+Language Translation- Compiler
+▪ Languages such as Java and Python compile to byte 
+code and execute on virtual machines, whereas 
+languages such as C and C++ compile to native 
+machine code and execute directly on hardware
+
+
+--- PAGE 71 ---
+71
+Language Translation - Summary
+▪  The Compiler (The "Pre-Translator"): processes the entire source 
+code at once before any execution happens. 
+▪ Workflow: It scans the whole program, translates it into an 
+independent executable file (like an .exe on Windows), and saves it to 
+disk.
+▪ Execution: Once compiled, the program can be run multiple times 
+without needing the compiler again.
+▪ Errors: It reports all syntax errors only after scanning the complete 
+code. The program will not compile until all errors are fixed.
+▪ Performance: Generally faster execution because the translation is 
+already done.
+▪ Examples: C, C++, Rust, and Go. 
+
+--- PAGE 72 ---
+72
+Language Translation - Summary
+▪ The Interpreter (The "Real-Time Translator"): translates and executes 
+code line-by-line during runtime. 
+▪ Workflow: It reads a single statement, translates it, and executes it 
+immediately before moving to the next line.
+▪ Execution: No standalone executable file is created; the interpreter 
+must be present every time the program runs.
+▪ Errors: It reports errors as soon as it encounters them and stops 
+execution at that specific line. This makes debugging more interactive.
+▪ Performance: Slower overall execution because translation happens 
+simultaneously with running the program.
+▪ Examples: Python, JavaScript, Ruby, and PHP
+
+--- PAGE 73 ---
+73
+Type of Errors
+▪ Lexical: character-level error, such as illegal character 
+(hard to distinguish from syntax). 
+▪ Syntax: error in structure (e.g., missing semicolon or 
+keyword). 
+▪ Static semantic: non-syntax error prior to execution (e.g., 
+undefined vars, type errors). 
+▪ Dynamic semantic: non-syntax error during execution (e.g., 
+division by 0). 
+▪ Logic: programmer error, program not at fault. (e.g. 
+computing the average of two numbers is attempted by 
+dividing by 3!).
+
+--- PAGE 74 ---
+74
+Language Translation- Error reporting
+▪ A compiler will report lexical, syntax, and static 
+semantic errors. It cannot report dynamic semantic 
+errors. 
+▪ An interpreter will often only report lexical and syntax 
+errors when loading the program. 
+▪ Static semantic errors may not be reported until just 
+prior to execution. Indeed, most interpreted languages 
+(e.g. Lisp, Smalltalk) do not define any static semantic 
+errors. 
+▪ No translator can report a logic error. 
+
+--- PAGE 75 ---
+75
+QUESTIONS?
+SOME OF THESE SLIDES WERE SHAMELESSLY ADOPTED FROM  “DR HENA IQBAL” AND FROM “KENNETH C. LOUDEN AND KENNETH A. LAMBERT. PROGRAMMING LANGUAGES: PRINCIPLES AND 
+PRACTICE, 3RD EDITION, CENGAGE LEARNING, 2011, ISBN-13: 978-1111529413

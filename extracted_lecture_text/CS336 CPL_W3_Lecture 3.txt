@@ -1,0 +1,663 @@
+
+--- PAGE 1 ---
+CS336:CONCEPTS OF PROGRAMMING 
+LANGUAGES
+LOGIC PROGRAMMING
+Dr Hend El Mohandes
+1
+
+--- PAGE 2 ---
+▪ Logic, the science of reasoning and proof, has existed 
+since the time of the ancient Greek philosophers. 
+▪ Mathematical, or symbolic, logic, the theory of 
+mathematical proofs, began with the work of George 
+Boole and Augustus De Morgan in the middle of the 
+1800s. 
+▪ Since then, logic has become a major mathematical 
+discipline.
+2
+LOGIC
+
+--- PAGE 3 ---
+▪ Logic is not concerned with what is true. Logic is the 
+study of what follows from what. What conclusion 
+follow from a set of premises.
+▪ It can be defined as study of principles of correct 
+reasoning.
+▪ The main thing we study in logic are principles 
+governing the validity of arguments and check that 
+whether certain conclusion follows from some given 
+assumption.
+3
+LOGIC 
+
+--- PAGE 4 ---
+▪ Logic programming is a declarative programming 
+paradigm based on formal logic.
+▪ programs are constructed as sets of facts and rules 
+rather than imperative instructions.
+▪ It focuses on defining "what" the problem is rather 
+than "how" to solve it, utilizing automated reasoning 
+to deduce answers to queries.
+4
+LOGIC PROGRAMMING  
+
+--- PAGE 5 ---
+▪ In normal programming, like Python or Java, we 
+usually tell the computer how to solve a problem.
+▪ For example, if we want to know who is a 
+grandparent, we write steps:
+1) look at parent relationships
+2) check whether one parent leads to another
+3) return the result
+5
+LOGIC PROGRAMMING 
+
+--- PAGE 6 ---
+▪ Logic programming tries to flip this idea.
+▪ Instead of writing the steps, we write:
+• facts: things that are true
+• rules: relationships between truths
+• queries: questions we want the system to answer
+▪ So the programmer mostly describes what must be 
+true, and the system tries to prove it.
+6
+LOGIC PROGRAMMING 
+
+--- PAGE 7 ---
+▪ Before you can learn about logic programming, you 
+need to know a little bit about mathematical logic.
+ 
+▪ The kind of logic used in logic programming is the 
+first-order predicate calculus.
+▪  It is a way of formally expressing logical statements, 
+that is, statements that are either true or false.
+7
+LOGIC PROGRAMMING 
+
+--- PAGE 8 ---
+Example 1:
+▪ The following English statements are logical 
+statements:
+• 0 is a natural number.
+• 2 is a natural number.
+• For all x, if x is a natural number, then so is the successor of 
+x. 
+• 21 is a natural number.
+▪ A translation into predicate calculus is as follows:
+• natural(0).
+• natural(2).
+• For all x, natural(x) → natural(successor (x)).
+• natural(21). 8
+FIRST-ORDER PREDICATE LOGIC  
+
+--- PAGE 9 ---
+Example 1:
+▪ The first and third statements can be viewed as 
+axioms for the natural numbers. 
+▪ Indeed, the second statement can be proved from 
+these axioms.
+• since 2 = successor(successor(0)) and 
+• natural(0) → natural ( successor(0)) → natural (successor(successor (0))). 
+▪ The fourth statement, on the other hand, cannot be 
+proved from the axioms and so can be assumed to be 
+false. How? 9
+FIRST-ORDER PREDICATE LOGIC 
+
+--- PAGE 10 ---
+Example 1:
+▪ The fourth statement, on the other hand, cannot be 
+proved from the axioms and so can be assumed to be 
+false. How?
+• The 4th statement is not false because 21 isn’t natural 
+• It is “false” (or more precisely not provable) because: The 
+system lacks a definition connecting 21 → successors of 0 
+10
+FIRST-ORDER PREDICATE LOGIC 
+
+--- PAGE 11 ---
+Example 1:
+▪ Lets take a deeper look
+▪ Axioms: 
+1. natural(0)
+2. ∀x: natural(x) → natural(S(x)) (where S is successor 
+function).
+We can obtain : 0  →  S(0)  →  S(S(0))  →  S(S(S(0)))  →  ...
+11
+FIRST-ORDER PREDICATE LOGIC 
+
+--- PAGE 12 ---
+Example 1:
+▪ Lets take a deeper look
+▪ Axioms: 
+1. natural(0)
+2. ∀x: natural(x) → natural(S(x)) (where S is successor 
+function).
+▪ We derived: natural(S^21(0))
+▪ But: natural(21): No connection between 21 and 
+    S^21(0)
+12
+FIRST-ORDER PREDICATE LOGIC 
+
+
+--- PAGE 13 ---
+Example 1:
+▪ Lets take a deeper look
+▪ Axioms: 
+1. natural(0)
+2. ∀x: natural(x) → natural(S(x)) (where S is successor 
+function).
+▪ To prove natural(21), we need to define: 
+    21 = S^21(0)
+▪ Without this → proof fails
+13
+FIRST-ORDER PREDICATE LOGIC 
+
+
+--- PAGE 14 ---
+First-order predicate calculus classifies the different 
+parts of such statements as follows: 
+1) Constants
+2) Predicates
+3) Functions
+4) Variables
+5) Connectives
+6) Quantifiers
+7) Punctuation Symbols
+14
+FIRST-ORDER PREDICATE LOGIC 
+
+--- PAGE 15 ---
+First-order predicate calculus classifies the different 
+parts of such statements as follows: 
+1) Constants: These are usually numbers or names. 
+Sometimes they are called atoms, since they 
+cannot be broken down into subparts. In Example 
+1, 0 is a constant
+15
+FIRST-ORDER PREDICATE LOGIC 
+
+
+--- PAGE 16 ---
+First-order predicate calculus classifies the different 
+parts of such statements as follows: 
+2) Predicate: These are names for functions that are 
+true or false, like Boolean functions in a program. 
+Predicates can take a number of arguments. 
+In Example 1, the predicate natural takes one 
+argument.
+16
+FIRST-ORDER PREDICATE LOGIC 
+
+
+--- PAGE 17 ---
+First-order predicate calculus classifies the different 
+parts of such statements as follows: 
+3) Functions: 
+• First-order predicate calculus distinguishes between 
+functions that are true or false, these are the 
+predicates, and all other functions, like successor in 
+Example 1, which represent non-Boolean values.
+• A predicate asks whether something is true, a function 
+produces a value.
+17
+FIRST-ORDER PREDICATE LOGIC 
+
+--- PAGE 18 ---
+First-order predicate calculus classifies the different 
+parts of such statements as follows: 
+4) Variables: That Stand for as yet Unspecified 
+Quantities. In Example 1, x is a variable.
+18
+FIRST-ORDER PREDICATE LOGIC 
+
+
+--- PAGE 19 ---
+First-order predicate calculus classifies the different 
+parts of such statements as follows: 
+5) Connectives: 
+• These include the operations and, or, and not, 
+just like the operations on Boolean data in 
+programming languages. 
+• Additional connectives in predicate calculus are 
+implication, signified by →, and equivalence, 
+indicated by 
+ . 
+• a → b means that b is true whenever a is true. 
+19
+FIRST-ORDER PREDICATE LOGIC 
+
+--- PAGE 20 ---
+First-order predicate calculus classifies the different 
+parts of such statements as follows: 
+6) Quantifiers: 
+• Declares the scope or range of variables in a 
+logical expression.
+• We have two basic quantifiers used in logic.
+• Universal Quantifier (∀)
+• Existential Quantifier (∃)
+20
+FIRST-ORDER PREDICATE LOGIC 
+
+--- PAGE 21 ---
+First-order predicate calculus classifies the different 
+parts of such statements as follows: 
+6) Quantifiers: 
+• The statement: For all x, natural (x) → natural(Successor(X)). 
+means that for every x in the universe, if x is a 
+natural number, then the successor of x is also a 
+natural number.
+• A universal quantifier is used to state that a 
+relationship among predicate is true for all 
+things in the universe names by the variable x.
+21
+FIRST-ORDER PREDICATE LOGIC 
+
+--- PAGE 22 ---
+First-order predicate calculus classifies the different 
+parts of such statements as follows: 
+6) Quantifiers: 
+• If a is a variable, then ∀ is read as:
+1. For all a
+2. For each a
+3. For every a
+22
+FIRST-ORDER PREDICATE LOGIC 
+
+--- PAGE 23 ---
+First-order predicate calculus classifies the different 
+parts of such statements as follows: 
+6) Quantifiers: 
+• If a is a variable, then ∀ is read as:
+1. For all a
+2. For each a
+3. For every a
+23
+FIRST-ORDER PREDICATE LOGIC 
+
+--- PAGE 24 ---
+First-order predicate calculus classifies the different 
+parts of such statements as follows: 
+6) Quantifiers: 
+• There is also the existential quantifier, there 
+exists (∃), as in the following statement:
+• There exists x, natural(x): this means that there 
+exists an x such that x is a natural number.
+• An existential quantifier is used to state that a 
+predicate is true of at least one thing in the 
+universe, indicated by the variable x.
+24
+FIRST-ORDER PREDICATE LOGIC 
+
+--- PAGE 25 ---
+First-order predicate calculus classifies the different 
+parts of such statements as follows: 
+6) Quantifiers: 
+• If b is a variable, then ∃ is read as:
+1. There exists a b.
+2. For some b.
+3. For at least one b.
+25
+FIRST-ORDER PREDICATE LOGIC 
+
+--- PAGE 26 ---
+First-order predicate calculus classifies the different 
+parts of such statements as follows: 
+7) Punctuation Symbols: These include left and right 
+parentheses, the comma, and the period ..etc
+26
+FIRST-ORDER PREDICATE LOGIC 
+
+--- PAGE 27 ---
+Example 2:
+▪ The following are logical statements in English:
+▪ A possible translation of these statements into first-order 
+predicate calculus is as follows:
+27
+FIRST-ORDER PREDICATE LOGIC 
+
+
+--- PAGE 28 ---
+Example 2:
+▪ In this example, the constants are the integers 0, 2, 
+and 4 and the names horse and human. 
+▪ The predicates are mammal, arms, and legs. 
+▪ The only variable is x, and there are no functions.
+28
+FIRST-ORDER PREDICATE LOGIC 
+
+
+--- PAGE 29 ---
+Example 2:
+▪ Can we prove that legs(human, 2) is true? If we 
+assume that first 5 are axioms? 
+▪ What about legs(human,0)?
+29
+FIRST-ORDER PREDICATE LOGIC 
+
+
+--- PAGE 30 ---
+Example 2:
+▪ Step 1:What are the axioms? We are told to treat the first five 
+statements as axioms : 
+• mammal(horse)
+• mammal(human)
+• ∀x: mammal(x)→((legs(x,4) ∧ arms(x,0))∨(legs(x,2)∧ arms(x,2)))
+• arms(horse, 0)
+• not arms(human, 0)
+▪ These define the “world”
+30
+FIRST-ORDER PREDICATE LOGIC 
+
+--- PAGE 31 ---
+Example 2:
+▪ Step 2:Apply the rule to human
+▪ From axiom (2):mammal(human)
+▪ From axiom (3) we substitute :
+        x = human:
+mammal(human)→((legs(human,4)∧arms(human,0))∨(legs(hu
+man,2)∧arms(human,2)))
+▪ Since: mammal(human) is true, we conclude:
+(legs(human,4) ∧ arms(human,0))∨(legs(human,2) ∧ arms(human,2))
+31
+FIRST-ORDER PREDICATE LOGIC 
+
+--- PAGE 32 ---
+Example 2:
+▪ Step 2: compare with Axioms
+(legs(human,4) ∧ arms(human,0))∨(legs(human,2) ∧ arms(human,2))
+That makes us conclude that :
+legs(human,2) True
+arms(human,2)   True
+32
+FIRST-ORDER PREDICATE LOGIC 
+This must be false from 
+axiom 5 
+
+--- PAGE 33 ---
+▪ Why we learn predicate logic before logic programming?
+▪ Because logic programming is built on the idea that if you can 
+write knowledge formally, then a computer can try to derive 
+new truths from it.
+▪ This is the idea behind predicate logic.
+▪ Logic programming consists of 
+▪ Facts
+▪ Rules
+▪ Queries
+33
+LOGIC PROGRAMMING
+
+--- PAGE 34 ---
+▪ Facts: A fact is just something we accept as true.
+▪ Rules: A rule says → “This is true if something else is true.”
+• X is grandparent of Y if X is parent of Z and Z is parent of Y.
+• left side = conclusion while right side = conditions
+34
+LOGIC PROGRAMMING
+
+
+--- PAGE 35 ---
+▪ Once we have facts and rules, we ask a question, these questions 
+are called “Queries”.
+▪ That question is called a query or goal.
+• facts = what the system knows 
+• rules = how truths connect 
+• query = what we want to know 
+• So the whole program becomes like a detective game.
+35
+QUERY
+
+
+--- PAGE 36 ---
+36
+LOGIC PROGRAMMING  -SUMMARY
+Imagine asking a detective: is Alice an ancestor of Bob? You don't tell the detective 
+HOW to figure it out. Just give facts & rules, and it deduces the answer.
+Facts
+Things that are
+always true
+Rules
+If … then …
+logical implications
+Queries
+Questions you
+ask the system
+
+--- PAGE 37 ---
+37
+END OF PART 1
+
+--- PAGE 38 ---
+▪ A Horn clause (named after its inventor Alfred Horn) is a statement 
+of the form:
+▪ Where the 𝑎𝑖 are only allowed to be simple statements involving 
+no connectives and no quantifiers. 
+▪ In the previous Horn clause it means that 𝑎𝑖 through 𝑎𝑛 imply b, or 
+that b is true if all the 𝑎𝑖 are true. 
+▪ b is called the head of the clause, and the 𝑎1 . . . , 𝑎𝑛 is the body 
+of the clause.
+38
+HORN CLAUSES
+
+
+--- PAGE 39 ---
+▪ In the Horn clause, the number of ai ’s may be 0, in which case the 
+Horn clause has the form:
+▪ Such a clause means that b is always true. 
+▪ In other words, b is an axiom and is usually written without the 
+connective →. 
+▪ Such clauses are sometimes also called facts.
+39
+HORN CLAUSES
+
+
+--- PAGE 40 ---
+▪ The basic idea is to remove or connectives by writing separate 
+clauses.
+▪ And to treat the lack of quantifiers by assuming that variables 
+appearing in the head of a clause are universally quantified.
+▪  While variables appearing in the body of a clause (but not in 
+the head) are existentially quantified
+40
+HORN CLAUSES
+
+--- PAGE 41 ---
+Example 1:
+▪ The following statements from Example 1 are written in first-
+order predicate calculus:
+▪ These can be very simply translated into Horn clauses by 
+dropping the quantifier:
+41
+HORN CLAUSES
+
+
+--- PAGE 42 ---
+Example 2:
+▪ Consider the following statement:
+ x is a grandparent of y if x is the parent of
+ someone who is the parent of y.
+▪ Translating this into predicate calculus, we get
+▪ As a Horn clause this is expressed simply as:
+42
+HORN CLAUSES
+
+
+--- PAGE 43 ---
+Example 3:
+▪ Consider the following statement:
+ For all x, if x is a mammal then x has two or four legs.
+ 
+▪ Translating this into predicate calculus, we get
+▪ As a Horn clause this is expressed simply as:
+43
+HORN CLAUSES
+
+
+--- PAGE 44 ---
+▪ Resolution says that if we have two Horn clauses, and 
+we can match the head of the first Horn clause with one 
+of the statements in the body of the second clause, then 
+the first clause can be used to replace its head in the 
+second clause by its body. 
+▪ If 𝑏𝑖 matches a, then we can infer the clause:
+44
+RESOLUTION
+
+
+--- PAGE 45 ---
+▪ The simplest example of this occurs when the body of the Horn 
+clauses contains only single statements, such as in:
+and:
+▪ In this case, resolution says that we may infer the following clause:
+45
+RESOLUTION
+
+
+--- PAGE 46 ---
+▪ Another way of looking at resolution is to combine left-hand and 
+right-hand sides of both Horn clauses and then cancel those 
+statements that match on both sides. Thus, for the simplest 
+example,
+46
+RESOLUTION
+
+
+--- PAGE 47 ---
+Example 1:
+47
+RESOLUTION
+This is a query
+
+--- PAGE 48 ---
+Example 2:
+48
+RESOLUTION
+
+
+--- PAGE 49 ---
+▪ To match statements that contain variables, we must set the 
+variables equal to terms so that the statements become identical 
+and can be canceled from both sides.
+▪ This process of pattern matching to make statements identical is 
+called unification, and variables that are set  equal to patterns 
+are said to be instantiated.
+▪ Unification is the process by which variables are instantiated, or 
+allocated memory and assigned values, so that patterns match 
+during resolution. It is also the process of making two terms the 
+same in some sense
+49
+UNIFICATION
+
+--- PAGE 50 ---
+▪ Basically, unification can be summarized as follow:
+“Can I make these two expressions the same by filling in the 
+variables?”
+▪ These match if:
+▪ So unification is like pattern fitting. 50
+UNIFICATION
+
+
+--- PAGE 51 ---
+▪ Why unification is so important?
+▪ Because Prolog does not manually “search a table” in the way 
+we imagine.
+▪ Instead, it repeatedly asks: does this goal match this fact or rule 
+head?
+▪ If yes, what variable values make it match?
+▪ So, unification is the engine of matching.
+51
+UNIFICATION
+
+--- PAGE 52 ---
+▪ So, in Summary we can say:
+▪ Resolution chooses the rule.
+▪ Unification fills in the variables.
+52
+UNIFICATION
+
+
+--- PAGE 53 ---
+▪ Prolog or PROgramming in LOGics is a logical and 
+declarative programming language.
+▪ It is one major example of the fourth-generation 
+language that supports the declarative programming 
+paradigm.
+▪ In Prolog, we do not describe how to solve the problem, 
+we describe what the problem is, and Prolog finds the 
+solution.
+53
+PROLOG
+
+--- PAGE 54 ---
+▪ Prolog is the most widely used language inspired by 
+logic programming research.
+▪ It is a declarative language.
+▪ Prolog is used for solving problems that involve objects 
+and relationships between objects.
+▪ A Prolog program can be seen as a relational 
+database containing facts as well as rules.
+54
+PROLOG
+
+--- PAGE 55 ---
+▪ Prolog language basically has three different elements 
+1) Facts: It is predicate that is true
+• For example, if we say, “Tom is the son of Jack”, then this is 
+a fact. 
+2) Rules: They are extinctions of facts that contain 
+conditional clauses. To satisfy a rule these conditions 
+should be met. 
+• For example, if we define a rule as: 
+ grandfather(X, Y) :- father(X, Z), parent(Z, Y) 
+• This implies that for X to be the grandfather of Y, Z 
+should be a parent of Y and X should be father of Z. 
+55
+PROLOG
+
+--- PAGE 56 ---
+Some Applications of Prolog:
+▪ Prolog is used in various domains such as:
+• Intelligent Database Retrieval 
+• Natural Language Understanding 
+• Specification Language 
+• Machine Learning 
+• Robot Planning 
+• Automation System 
+• Problem Solving
+56
+PROLOG
+
+--- PAGE 57 ---
+▪ Example
+57
+PROLOG
+
+
+--- PAGE 58 ---
+▪ Example
+58
+PROLOG
+
+
+--- PAGE 59 ---
+▪ Example
+59
+PROLOG
+
+
+--- PAGE 60 ---
+Example:
+▪ Lets try to write these rules in prolog:
+▪ X is a sister of Y
+▪ X is a female.
+▪ X has Mother M and father F and
+▪ Y has the same mother and father as X does.
+60
+PROLOG
+
+
+--- PAGE 61 ---
+61
+QUESTIONS?
+FEW OF THESE SLIDES WERE SHAMELESSLY ADOPTED FROM  “DR HENA IQBAL” AND FROM “KENNETH C. LOUDEN AND KENNETH A. LAMBERT. PROGRAMMING LANGUAGES: PRINCIPLES AND 
+PRACTICE, 3RD EDITION, CENGAGE LEARNING, 2011, ISBN-13: 978-1111529413

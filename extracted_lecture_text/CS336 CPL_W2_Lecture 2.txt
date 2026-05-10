@@ -1,0 +1,841 @@
+
+--- PAGE 1 ---
+CS336 :CONCEPTS OF PROGRAMMING 
+LANGUAGES
+LANGUAGE DESIGN CRITERIA 
+Dr Hend El Mohandes
+1
+
+--- PAGE 2 ---
+▪ What is good programming language design?
+ 
+By what criteria do we judge it? 
+2
+LANGUAGE DESIGN
+
+--- PAGE 3 ---
+▪ Earlier we emphasized that human readability and mechanisms for 
+abstraction and complexity control as key requirements for a 
+modern programming language. 
+▪ Judging a language by these criteria is difficult.
+▪ However, because the success or failure of a language often 
+depends on complex interactions among many language 
+mechanisms. Defining the “success” or “failure” of a programming 
+language is also complex.
+3
+LANGUAGE DESIGN
+
+--- PAGE 4 ---
+▪ For now, let’s say that a language is successful if it satisfies any or 
+all of the following criteria:
+4
+LANGUAGE DESIGN
+1
+Achieves designer goals
+e.g. Python achieved its 
+readability and 
+productivity goals exactly 
+as Guido van Rossum 
+intended.
+2
+Attains widespread use
+e.g. JavaScript became 
+universal on the web; Java 
+dominated enterprise for 
+decades.
+3
+Serves as model for others
+e.g. C influenced C++, 
+Java, C#; ML influenced 
+Haskell, Rust, Swift type 
+systems.
+
+--- PAGE 5 ---
+▪ When creating a new language, it’s essential to decide on an overall goal 
+for the language and then keep that goal in mind throughout the entire 
+design process. 
+5
+LANGUAGE DESIGN
+FORTRAN
+1957
+Efficient execution
+Computers were slow and 
+memory limited. FORTRAN 
+generated code nearly as fast as 
+hand-written assembly.
+COBOL
+1959
+English-like readability
+Business users needed to read and 
+verify programs. COBOL used 
+verbose English syntax 
+deliberately.
+Algol 60
+1960
+Algorithm description
+A block-structured language for 
+clearly expressing algorithms , 
+introduced recursion and 
+structured programming.
+Pascal
+1970
+Teaching structured design
+Designed as a simple instructional 
+language promoting top-down 
+design and program correctness.
+C++
+1985
+Abstraction + C efficiency
+Greater abstraction via OOP while 
+fully preserving compatibility and 
+performance of existing C code.
+
+--- PAGE 6 ---
+▪ Introduce some general design criteria and present a 
+set of more detailed principles as potential aids to 
+the language designer and ultimately the language 
+user.
+▪ Provide some specific examples to emphasize 
+possible good and bad choices, with the 
+understanding that there often is no general 
+agreement on these issues.
+6
+LANGUAGE DESIGN: OBJECTIVE
+
+--- PAGE 7 ---
+▪ Programming languages have evolved over time 
+based on:
+• Technology
+• limitations
+• Programmer needs
+• Problem complexity
+▪ Design goals have changed from:
+Efficiency → Readability → Abstraction → Reusability
+7
+HISTORICAL OVERVIEW
+
+--- PAGE 8 ---
+1950s – FORTRAN
+❖ Main focus: Efficiency
+• Computers were slow.
+• Memory was very limited.
+• Programmers did not trust compilers.
+❖ Result: Code was close to machine language 
+Programs were:
+• Hard to write 
+• Hard to read 
+• But very fast 
+8
+HISTORICAL OVERVIEW
+
+--- PAGE 9 ---
+1960s -Algol60 & COBOL
+❖ New focus: Readability & Structure
+Algol60:
+▪ Designed for clear algorithms
+▪ Introduced: Block structure, Recursion and Structured 
+programming.
+COBOL:
+▪ Tried to look like English 
+▪ Became :Very long, Hard to read.
+First time: Human readability became important
+9
+HISTORICAL OVERVIEW
+
+--- PAGE 10 ---
+1970s–1980s
+❖ Focus: Simplicity + Reliability + Abstraction
+❖ Languages: Pascal, C, Ada
+❖ Key improvements:
+▪ Strong data typing
+▪ Better structure
+▪ Attempted program correctness
+❖ Goal: Write safer and more understandable 
+programs.
+10
+HISTORICAL OVERVIEW
+
+--- PAGE 11 ---
+1980s–1990s
+❖ Focus: Mathematical & Logical Programming
+▪ Functional languages (ML, Haskell).
+▪ Logic programming.
+❖ Idea: Programs based on math and logic
+▪ More precise and predictable.
+11
+HISTORICAL OVERVIEW
+
+--- PAGE 12 ---
+Modern Era (Last 25 years)
+❖ Focus: Object-Oriented Programming (OOP)
+❖ Languages: C++, Java, Python
+❖ Key ideas: 
+▪ Objects represent real-world entities
+▪ Code reuse
+▪ Modularity 
+12
+HISTORICAL OVERVIEW
+
+--- PAGE 13 ---
+▪ Language design is one of the most difficult and 
+poorly understood areas of computer science.
+▪ A language cannot be merely a collection of “neat” 
+features. (Bjarne Stroustrup, C++ Designer).
+13
+LANGUAGE DESIGN: EFFICIENCY 
+
+--- PAGE 14 ---
+▪ A language is efficient if it allows programs to run 
+fast, use little memory, and be written quickly. These 
+three goals often conflict with each other.
+▪ Driving a manual car (C) = maximum fuel efficiency, 
+full control. Driving an automatic (Python) = easier 
+and faster to learn, but less control over performance.
+14
+LANGUAGE DESIGN: EFFICIENCY 
+
+--- PAGE 15 ---
+▪ Language designers nearly always claim that their 
+new languages support efficient programs, but what 
+does that really mean? 
+▪ Language designers usually think of the efficiency of 
+the target code first. 
+▪ That is, they strive for a language design that allows 
+a translator to generate efficient executable code. 
+15
+LANGUAGE DESIGN: EFFICIENCY 
+
+--- PAGE 16 ---
+▪ Example:
+• A designer interested in efficient executable code 
+might focus on statically typed variables, because 
+the data type of such a variable need not be 
+checked at runtime.
+Can you think of a language that has more restriction on 
+dynamic data types??
+16
+LANGUAGE DESIGN: EFFICIENCY 
+
+--- PAGE 17 ---
+▪ Consider the following Java code segment vs 
+equivalent python code.
+Which one is more efficient in your opinion?
+17
+LANGUAGE DESIGN: EFFICIENCY 
+
+
+--- PAGE 18 ---
+▪ In Java code, since the data types of variables are 
+known at compile time, the compiler ensures that only 
+valid integer and string operations are performed.
+ 
+▪ As a result, the runtime system does not need to check 
+data types during execution.
+18
+LANGUAGE DESIGN: EFFICIENCY 
+
+--- PAGE 19 ---
+▪ In contrast, the equivalent code in Python simply 
+assigns values to typeless variables.
+▪  The absence of a type specification at compile time 
+forces the runtime system to check the type of a 
+Python variable’s value before executing any 
+operations on it. 
+▪ This causes execution to proceed more slowly than it 
+would if the language were statically typed.
+19
+LANGUAGE DESIGN: EFFICIENCY 
+
+--- PAGE 20 ---
+▪ Efficiency of translation: the source code should be  
+translated quickly and by a reasonably sized 
+translator.
+▪ Example: can a one-pass compiler be used? Pascal , 
+FORTRAN and C force you to declare variables 
+before using them.
+▪ In C++, this is a bit relaxed, compilers must make a 
+second pass.
+20
+LANGUAGE DESIGN: EFFICIENCY 
+
+--- PAGE 21 ---
+▪ Another view of efficiency is programmer efficiency: 
+How quickly and easily can a person read and write 
+a program in a particular language? 
+▪ A programmer’s efficiency is greatly affected by a 
+language’s expressiveness: How easy is it to express 
+complex processes and structures? And how complex 
+structures is abstracted.
+21
+LANGUAGE DESIGN: EFFICIENCY 
+
+--- PAGE 22 ---
+▪ The conciseness of the syntax also contributes to a 
+language’s programming efficiency. 
+▪ Languages that require a complex syntax are often 
+considered less efficient in this regard. 
+▪ For designers especially concerned with programmer 
+efficiency, Python is an ideal language. Its syntax is 
+extremely concise. 
+22
+LANGUAGE DESIGN: EFFICIENCY 
+
+--- PAGE 23 ---
+23
+LANGUAGE DESIGN: EFFICIENCY 
+
+
+--- PAGE 24 ---
+▪ Reliability and Maintainability: Could be viewed as  
+an efficiency issue.
+▪ If programs are not reliable, they cost significantly 
+at later stages.
+▪ If programs are significantly difficult to maintain, 
+they can cost significantly also.
+▪ May entirely waste development efforts.
+▪ Efficiency of resource utilization.
+24
+LANGUAGE DESIGN: EFFICIENCY 
+
+--- PAGE 25 ---
+▪ So we can summarize efficiency as follow
+25
+LANGUAGE DESIGN: EFFICIENCY 
+Execution efficiency
+How fast the compiled 
+code runs and how little 
+memory it uses.
+Example:
+C is the gold standard direct 
+memory access, no runtime 
+type checks, close-to-hardware. 
+Python is 10–100× slower.
+Translation efficiency
+How quickly and easily the 
+source code can be 
+compiled or interpreted.
+Example:
+Pascal/C require declarations 
+before use → single-pass 
+compilation. C++ relaxes this, 
+requiring a second pass.
+Programmer efficiency
+How quickly a programmer 
+can write correct, readable, 
+maintainable code.
+Example:
+Python maximises this. Concise 
+syntax, dynamic typing, 
+'batteries included’ at the cost 
+of execution speed.
+
+--- PAGE 26 ---
+▪ Is a measure of how well a language integrates its 
+features, so that there are no unusual restrictions, 
+interactions, or behavior.
+▪ Generally, there should be no surprises in the way the 
+language features behave.
+▪ Programmers usually take the regularity of a 
+language for granted, until some feature causes a 
+program to behave in a manner that astonishes them.
+26
+LANGUAGE DESIGN: REGULARITY  
+
+--- PAGE 27 ---
+▪ Regularity is divided into three more definite 
+concepts.
+27
+LANGUAGE DESIGN: REGULARITY  
+Generality
+No special cases in 
+availability or use of 
+constructs.
+Analogy:
+Universal remote works with 
+every device.
+Orthogonality
+Constructs combine 
+freely no unexpected 
+restrictions based on 
+context.
+Analogy:
+LEGO bricks ,any piece fits 
+any other.
+Uniformity
+Similar things look similar 
+and behave similarly.
+Analogy:
+Traffic lights, red always 
+means stop, everywhere.
+
+--- PAGE 28 ---
+▪ Generality:
+❖ Avoiding special cases in the availability or use of 
+constructs.
+❖ Combining closely related constructs into a single 
+more general one.
+❖ Too much generality is bad!
+28
+LANGUAGE DESIGN: REGULARITY  
+
+--- PAGE 29 ---
+▪ Everyday analogy:
+❖ A universal remote that works with every device = high 
+generality.
+❖ A remote with a special "TV-only“ power button  = low 
+generality
+29
+LANGUAGE DESIGN: REGULARITY  
+
+--- PAGE 30 ---
+▪ Examples of Lack of Generality:
+❖ In C, two structures or arrays cannot be directly compared 
+using the equality (==) operator, but must be compared 
+element by element. 
+❖ Python: functions are data you can store, pass, and nest 
+them freely
+❖ C: no nested functions special restriction on one construct 
+type.
+30
+LANGUAGE DESIGN: REGULARITY  
+
+--- PAGE 31 ---
+▪ Orthogonality:
+❖ In mathematics, it means perpendicularity, or in a 
+completely independent direction.
+❖ Language constructs should NOT behave differently in 
+different contexts.
+❖ The language constructs can be combined in a meaningful 
+way.
+❖ The interactions of constructs, or the context of use, should 
+not cause unexpected restrictions or behavior.
+❖ There should be no strange interactions!
+31
+LANGUAGE DESIGN: REGULARITY  
+
+--- PAGE 32 ---
+▪ Everyday Analogy:
+❖ Any LEGO brick connects to any other no special  
+exceptions.
+❖ Imagine a brick that only fits some bricks non-orthogonal!
+❖ Context changes how it behaves.
+32
+LANGUAGE DESIGN: REGULARITY  
+
+--- PAGE 33 ---
+▪ Examples of Lack of Orthogonality:
+❖ Java: int is NOT an object. 
+List<int> is illegal must use List<Integer> instead. Surprise!
+Python: everything is an object , No special cases by type.
+❖ C passes all parameters by value, except arrays, which are 
+passed by reference.
+❖ In Java, assigning objects is an assignment of references, 
+while assigning primitive data types is done by value.
+33
+LANGUAGE DESIGN: REGULARITY  
+
+--- PAGE 34 ---
+▪ Uniformity:
+❖ Similar things should look similar and have similar 
+meanings Inversely, different things should look 
+different.
+❖ i.e. consistency of appearance and behavior.
+❖ Non-uniformity and non-orthogonality may be 
+very closely related in some instances.
+34
+LANGUAGE DESIGN: REGULARITY  
+
+--- PAGE 35 ---
+▪ Everyday analogy:
+❖ Traffic lights: red always means stop, green 
+always go → uniform.
+❖ Imagine red = stop on roads but red = go in 
+tunnels → Confusing!
+35
+LANGUAGE DESIGN: REGULARITY  
+
+--- PAGE 36 ---
+▪  Examples of lack of uniformity:
+❖ In C++, a semicolon is necessary after a class definition but 
+forbidden after a function definition.
+class A { … };
+int f() { … }
+❖ This non-uniformity was forced to allow C++ to be 
+compatible with C.
+❖ Returned values from functions in Pascal look like 
+assignments.
+36
+LANGUAGE DESIGN: REGULARITY  
+
+
+--- PAGE 37 ---
+▪  Why do languages exhibit such irregularities at all?
+▪ Surely the language designers did not intentionally 
+set out to create strange restrictions, interactions, and 
+confusions. 
+▪ Irregularities aren't always bad design; they often 
+reflect real engineering trade-offs like performance 
+or backward compatibility. 
+37
+LANGUAGE DESIGN: REGULARITY  
+
+--- PAGE 38 ---
+▪ An irregularity is only a design flaw if it cannot be 
+justified by a core goal.
+38
+LANGUAGE DESIGN: REGULARITY  
+C++ semicolons → Compatibility with C forced the inconsistency.
+No nested functions in C → Simple stack-based runtime closures would have needed a more complex 
+environment.
+Java primitives vs objects → Performance boxing every integer as an object adds overhead.
+
+--- PAGE 39 ---
+39
+END OF PART 1
+
+--- PAGE 40 ---
+40
+Language Design: Security
+▪ A secure language makes it harder to write buggy or 
+dangerous code.
+▪ Core principle: Detect errors as early as possible, ideally 
+at compile time, not at runtime, and never silently.
+ANALOGY
+Spell-check as you type (compile-time) vs. finding 
+typos after you've sent the email (runtime). 
+Better still: grammar that makes the error 
+impossible to write.
+WHY IT MATTERS
+Silent errors ,wrong results with no crash  are the 
+costliest bugs. Security-focused design forces errors 
+to surface as early as possible in development.
+
+--- PAGE 41 ---
+41
+Language Design: Security
+▪ Example:
+❖ In Pascal, for instance, pointers are specifically 
+restricted to reduce security problems.
+❖ While in C pointers are much less restricted and, thus, 
+much more prone to misuse and error. 
+❖ In Java, by contrast, pointers have been eliminated 
+altogether (they are implicit in all object allocation), 
+but at some cost of a more complicated runtime 
+environment
+
+--- PAGE 42 ---
+42
+Language Design: Security
+▪ We can summarize security of language in 3 main points
+Type safety
+Prevents operations on 
+wrong-typed data
+Scope & aliasing
+Controls what can be seen 
+or changed
+Error detection
+When and how errors are 
+reported
+
+--- PAGE 43 ---
+43
+Language Design: Security
+▪ Type Safety: How a language handles types determines 
+how many errors it catches before runtime.
+Language Type system When caught Example / note
+C Weak / static Some compile-time, many silently 
+pass void* casts bypass type checks entirely
+C++ Strong / static Mostly compile-time, casts still 
+allowed
+reinterpret_cast<> can still subvert the 
+system
+Java Strong / static Compile-time + runtime 
+(ClassCastException) No unsafe casts; arrays are bounds-checked
+Python Strong / dynamic Runtime only 1 + 'a' raises TypeError at runtime, not before
+Haskell Strong / static Compile-time — very few runtime 
+errors
+Type system prevents most bugs before 
+execution
+
+--- PAGE 44 ---
+44
+Language Design: Security
+▪ Aliasing: two names refer to the same memory. Changing 
+one changes the other….. silently.
+The aliasing problem in C
+int x = 10;
+int *p = &x;  // p aliases x
+*p = 99;      // x is now 99
+// x changed — but where?
+Two variables refer to the same memory location. 
+Modifying one silently affects the other , a rich source 
+of hard-to-find bugs in C programs.
+How languages address this
+C No restrictions on pointers — full aliasing allowed
+Java No pointer arithmetic; aliasing exists for objects 
+but is controlled
+Python Assignment creates references; mutable vs. 
+immutable types clarify behavior
+Haskell Immutable values by default — aliasing is 
+harmless because data never changes
+Ada Alias detection is part of the type system; 
+restricted aliasing constructs
+
+--- PAGE 45 ---
+45
+Language Design: Security
+▪ Error detection: The earlier an error is detected, the 
+cheaper it is to fix.
+Design time
+Language prevents the 
+error
+by design
+Compile time
+Type checker catches 
+it
+before running
+Runtime
+Exception thrown
+during execution
+Silent failure
+Wrong result, no error
+— the worst outcome
+← safer, cheaper to fix                                  more dangerous, costly to fix →
+Best design: make certain errors unrepresentable — the language simply cannot express them.
+
+--- PAGE 46 ---
+46
+Language Design: Security
+▪ Security is about making the right thing easy and the 
+wrong thing impossible!!
+▪ Discussion: Python uses dynamic typing  errors surface at 
+runtime. Does this make Python insecure, or just insecure in a 
+different way than C?
+
+--- PAGE 47 ---
+47
+Language Design: Extensibility 
+▪ A language is extensible when programmers can add new 
+features using the same mechanisms as built-in ones.
+▪ Ideal extensibility: no visible difference between what 
+the language gives you built-in and what you define 
+yourself.
+ANALOGY
+A smartphone with an app store = extensible. 
+A calculator with fixed buttons = not extensible.
+You expand what it does without changing the 
+device itself.
+THE IDEAL
+If someone reading code can't tell whether '+' was 
+built into the language or defined by the 
+programmer, the language has achieved full 
+extensibility.
+
+--- PAGE 48 ---
+48
+Language Design: Extensibility 
+▪ Example: 
+❖ Defining new data types, creating libraries, adding 
+functions to a library, adding keywords.
+
+--- PAGE 49 ---
+49
+Language Design: Extensibility 
+▪ Example: 
+❖ Defining new data types, creating libraries, adding 
+functions to a library, adding keywords.
+User-defined types
+Classes that behave 
+indistinguishably from 
+built-in types
+Operator overloading
+Reuse operators like + 
+and == for your own 
+types
+New operators
+Haskell lets you define 
+entirely new operator 
+symbols
+
+--- PAGE 50 ---
+50
+Language Design: Extensibility 
+▪ Lets take a closer look at operator overloading
+Can you make  a + b  work for your own type?
+Haskell
+Highest
+Can overload existing operators AND 
+define brand-new ones (e.g. <+>). 
+Operators are functions; full extensibility.
+data Vec = Vec Int Int
+(+) (Vec a b) (Vec c d) = Vec (a+c) 
+(b+d)
+Python
+High
+Overload via __add__, __eq__, __lt__ 
+etc. User types look exactly like built-in 
+types.
+class Vec:
+  def __add__(self, o):
+    return Vec(self.x+o.x, self.y+o.y)
+C++
+Medium
+Overloading supported, but cannot 
+create new operators. Some built-in 
+behavior (e.g. short-circuit &&) cannot 
+be replicated.
+Vec operator+(Vec a, Vec b) {
+  return Vec{a.x+b.x, a.y+b.y};
+}
+Java
+None
+No operator overloading at all. Must use 
+methods: a.add(b) rather than a + b. User 
+types look different from built-ins.
+// No overloading — must write:
+Vec result = a.add(b);
+
+--- PAGE 51 ---
+51
+Language Design: Extensibility 
+▪ The best extensible languages blur the line between 
+"built-in" and "user-defined.“
+▪ Discussion: C++ supports operator overloading but Java 
+does not. Which language made the better design decision? 
+What goal does each priorities?
+
+--- PAGE 52 ---
+52
+Case Study: C++ vs Python
+▪ Lets apply the four criteria as a lens. Every design 
+decision can be graded against them.
+Efficiency Does it run fast? Is it easy to compile? Is it quick to write?
+Regularity Are there special cases? Do constructs combine freely? Is similar 
+= similar?
+Security When are errors caught? Are types enforced? Is aliasing 
+controlled?
+Extensibility Can user types match built-ins? Can operators be overloaded or 
+created?
+Key rule: An irregularity is only a design flaw if it cannot be justified by a core goal of the language.
+
+--- PAGE 53 ---
+53
+Case Study: C++ vs Python
+▪ C++ an object-oriented extension of C.
+▪ Design goal: add OOP to C while preserving full backwards 
+compatibility with existing C code.
+Efficiency High
+Preserved from C , direct memory access, 
+close-to-metal performance. Zero-cost 
+abstractions where possible.
+Extensibility High
+Classes, operator overloading, templates. 
+User types can match built-in behavior 
+closely.
+Regularity Low
+Many irregularities inherited from C: 
+semicolons after class but not function, 
+arrays differ from other types, no nested 
+functions.
+Security Medium
+Better than C (type checking, references) 
+but still allows void* casts, unchecked array 
+access, and manual memory management.
+
+--- PAGE 54 ---
+54
+Case Study: C++ vs Python
+▪ Many C++ irregularities were not accidental they were the 
+unavoidable cost of C compatibility.
+Violates: uniformitySemicolon after class, not function
+C struct declarations allowed variables after the closing 
+brace. C++ kept this for compatibility. Structures and 
+classes reuse the same syntax.
+class A { ... };  // required
+void f() { ... }  // FORBIDDEN
+Violates: orthogonalityArrays differ from all other types
+C treats arrays as pointer decay. C++ inherited this. You 
+cannot return an array from a function, assign arrays with 
+=, or pass them by value.
+int a[5] = {1,2,3,4,5};
+int b[5] = a;  // ERROR
+b = a;         // ERROR
+Violates: generalityNo nested function definitions
+C uses a simple stack-based runtime. Nested functions 
+would require closures and a more complex activation 
+record — too expensive for C's goals.
+void outer() {
+  void inner() { ... }  // illegal!
+}
+
+--- PAGE 55 ---
+55
+Case Study: C++ vs Python
+▪ Python design goal: maximum readability and programmer 
+productivity, with a highly regular, object-oriented design.
+Regularity Very high
+Everything is an object, no primitive/object split. 
+Functions are first-class. All types behave the same 
+way.
+Extensibility Very high
+Operator overloading via dunder methods 
+(__add__, __eq__). Metaclasses allow radical 
+customisation.
+Prog. efficiency Very high
+Concise syntax, list comprehensions, dynamic 
+typing, batteries included. Developer productivity 
+is top priority.
+Security Medium
+Dynamic typing means type errors surface at 
+runtime, not compile time. No type checker by 
+default (though mypy helps).
+Exec. efficiency Lower
+Interpreted, dynamically typed  generally 10–100× 
+slower than C for compute-heavy tasks. Traded for 
+writability.
+
+--- PAGE 56 ---
+56
+Case Study: C++ vs Python
+▪ Why such design decisions chosen for python?
+Everything is an object
+Integers, strings, functions, classes  all are objects. No 
+primitive/reference split (unlike Java). This maximises orthogonality: 
+one model, no exceptions.
++ Complete regularity , same rules for everything
+- Small overhead for numeric computations vs. raw int
+Dynamic typing
+Types are checked at runtime, not compile time. A variable can hold 
+any type at any time. This reduces boilerplate and improves writability 
+dramatically.
++ Faster to write, more flexible, easier to prototype
+- Type errors become runtime crashes, not compile 
+errors
+Indentation as syntax
+Python uses indentation to define code blocks instead of braces. This 
+enforces readable code and eliminates one class of inconsistency 
+("should I use braces?").
++ Uniform visual structure; readable code forced by 
+design
+- Unusual  mixing tabs and spaces causes cryptic 
+errors
+
+--- PAGE 57 ---
+57
+Case Study: C++ vs Python
+▪ Same criteria, very different outcomes, because the design goals 
+were completely different.
+C++ Python
+Primary goal Performance + C compatibility Readability + programmer productivity
+Efficiency Exec: High  |  Write: Medium Exec: Lower  |  Write: Very high
+Regularity Low: many C-inherited irregularities Very high:  everything is an object
+Security Medium: type-checked but pointers 
+allowed Medium: strong types, runtime only
+Extensibility High : overloading, templates Very high : dunders, metaclasses
+Lesson: Neither language is "better"  each is optimal for its own design goals.
+
+--- PAGE 58 ---
+58
+QUESTIONS?
+FEW OF THESE SLIDES WERE SHAMELESSLY ADOPTED FROM  “DR HENA IQBAL” AND FROM “KENNETH C. LOUDEN AND KENNETH A. LAMBERT. PROGRAMMING LANGUAGES: PRINCIPLES AND 
+PRACTICE, 3RD EDITION, CENGAGE LEARNING, 2011, ISBN-13: 978-1111529413
