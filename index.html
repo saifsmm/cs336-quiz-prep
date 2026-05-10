@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CS336 Quiz Prep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,38 +23,40 @@
   <template id="homeTemplate">
     <section class="hero">
       <p class="eyebrow">Concepts of Programming Languages</p>
-      <h1>CS336 Quiz Prep</h1>
+      <h1>CS336<br>Quiz Prep</h1>
       <p class="hero-text">Fast revision for Weeks 1, 2, and 3 using your lecture PDFs only.</p>
     </section>
 
     <section class="button-grid" aria-label="Study actions">
       <button class="main-card" type="button" data-lecture="1">
-        <span>Lecture 1</span>
+        <span>Week 1 - Lecture 1</span>
         <strong>Introduction</strong>
       </button>
       <button class="main-card" type="button" data-lecture="2">
-        <span>Lecture 2</span>
+        <span>Week 2 - Lecture 2</span>
         <strong>Language Design Criteria</strong>
       </button>
       <button class="main-card" type="button" data-lecture="3">
-        <span>Lecture 3</span>
+        <span>Week 3 - Lecture 3</span>
         <strong>Logic Programming</strong>
       </button>
       <button class="main-card accent" type="button" data-mode="mcq">
-        <span>Quiz</span>
+        <span>Quiz Mode</span>
         <strong>Start Mixed Quiz</strong>
       </button>
       <button class="main-card accent" type="button" data-mode="tf">
-        <span>Practice</span>
+        <span>Practice Mode</span>
         <strong>True / False Practice</strong>
       </button>
       <button class="main-card accent" type="button" data-mode="short">
-        <span>Practice</span>
+        <span>Practice Mode</span>
         <strong>Short Answer Practice</strong>
       </button>
       <button class="main-card wide" type="button" data-view="summary">
-        <span>Memorize</span>
-        <strong>Last-Minute Summary</strong>
+        <div>
+          <span>Memorize</span>
+          <strong>Last-Minute Summary</strong>
+        </div>
       </button>
     </section>
   </template>

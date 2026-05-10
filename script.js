@@ -602,11 +602,19 @@ function nextQuestion() {
 function renderFinalScore() {
   const total = currentQuiz.questions.length;
   const percent = Math.round((currentQuiz.score / total) * 100);
+  const grade = percent >= 90 ? "Excellent" : percent >= 70 ? "Good work" : percent >= 50 ? "Keep practising" : "Needs review";
   setApp(`
     <section class="quiz-card">
       <p class="eyebrow">Practice Complete</p>
-      <h1>Final Score: ${currentQuiz.score} / ${total}</h1>
-      <p class="hero-text">${percent}% complete. Wrong answers were saved in Weak Topics.</p>
+      <h2>${grade}</h2>
+      <div class="score-display">
+        <span class="score-number">${currentQuiz.score}</span>
+        <span class="score-total">/ ${total}</span>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="scoreBar" style="width: 0%"></div>
+      </div>
+      <p class="hero-text">${percent}% correct. Wrong answers were saved in Weak Topics.</p>
       <div class="actions">
         <button class="primary-button" type="button" data-mode="${currentQuiz.mode}">Try Again</button>
         <button class="secondary-button" type="button" data-view="weak">Review Weak Topics</button>
@@ -614,6 +622,12 @@ function renderFinalScore() {
       </div>
     </section>
   `);
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const bar = document.getElementById("scoreBar");
+      if (bar) bar.style.width = percent + "%";
+    });
+  });
 }
 
 function renderSummary() {
